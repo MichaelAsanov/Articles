@@ -17,21 +17,21 @@ CREATE TABLE dbo.Tag (
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE dbo.RlArticleToTag (
+CREATE TABLE dbo.rlArticleToTag (
     RlArticleToTagID INT IDENTITY
     ,ArticleID INT NOT NULL
     ,TagID INT NOT NULL
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE dbo.RlArticleToTag
-    ADD CONSTRAINT FK_RlArticleToTag_To_Article FOREIGN KEY (ArticleID) REFERENCES dbo.Article (ArticleID)
+ALTER TABLE dbo.rlArticleToTag
+    ADD CONSTRAINT FK_rlArticleToTag_To_Article FOREIGN KEY (ArticleID) REFERENCES dbo.Article (ArticleID)
 GO
 
-ALTER TABLE dbo.RlArticleToTag
-    ADD CONSTRAINT FK_RlArticleToTag_To_Tag FOREIGN KEY (TagID) REFERENCES dbo.Tag (TagID)
+ALTER TABLE dbo.rlArticleToTag
+    ADD CONSTRAINT FK_rlArticleToTag_To_Tag FOREIGN KEY (TagID) REFERENCES dbo.Tag (TagID)
 GO
 
-ALTER TABLE dbo.RlArticleToTag
+ALTER TABLE dbo.rlArticleToTag
     ADD CONSTRAINT UC_ArticleID_TagID UNIQUE(ArticleID, TagID)
 GO
